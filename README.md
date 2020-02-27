@@ -1,4 +1,5 @@
-# desafio_elogroup
+# Elogroup - Desafio de Programação
+
 
 ## Configuração do projeto
 ```
@@ -28,11 +29,13 @@ ou
 yarn lint
 ```
 
+
 ### Ferramenta utilizado
 Vue CLI - Versão 4.2.2.
 
 ### Frameworks utilizados
 Vue.js - Versão 2.6.11.
+
 Bootstrap - Versão 4.4.1.
 
 ### Componente utilizado
