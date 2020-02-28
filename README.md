@@ -1,5 +1,8 @@
 # Elogroup - Desafio de Programação
 
+## Requisito
+Nodejs - Versão @^13.7.0
+
 
 ## Configuração do projeto
 ```
@@ -42,7 +45,7 @@ Bootstrap - Versão 4.4.1.
 Vue input mask - Versão 2.0.2.
 
 ### Referência de Configuração
-1. Ferramenta para o desenvolvimento do Vue.js [Vue CLI](https://cli.vuejs.org).
+1. Ferramenta para criação do projeto Vue.js [Vue CLI](https://cli.vuejs.org).
 2. Framework JavaScript utilizado no desenvolvimento [Vue.js](https://vuejs.org).
 3. Framework de estilização utilizado na aplicação [Bootstrap](https://getbootstrap.com).
 4. Máscara utilizada no formulário [Vue input mask](https://www.npmjs.com/package/v-mask).
