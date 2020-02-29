@@ -34,7 +34,7 @@ yarn lint
 ```
 
 
-### Ferramenta utilizado
+### Ferramenta utilizada
 Vue CLI - Versão 4.2.2.
 
 ### Frameworks utilizados
@@ -49,7 +49,11 @@ Vue input mask - Versão 2.0.2.
 ### Estrutura do Projeto
 
 <b>public</b>: 
-  - <b>index.html</b>: Esse é o arquivo principal da nossa aplicação, ele renderizarar nossa app pois ele contem a <div id=”app”></div>.
+  - <b>index.html</b>: Esse é o arquivo principal da nossa aplicação, ele renderizarar nossa app pois ele contem a:
+
+```
+<div id=”app”></div>
+```
 
 <b>src</b>: Onde fica nossos códigos fontes, sendo eles componentes, plugins, assets 
   pré-processados, routers e outros diretórios.
@@ -57,12 +61,12 @@ Vue input mask - Versão 2.0.2.
   - <b>assets</b>: Onde ficam os ativos importados nos componentes. Ex.: Imagens.
 
   - <b>App.vue</b>: Este é o componente raiz que conterá a visualização principal do aplicativo.
-  - </b>main.js</b>: Este arquivo é responsável por inicializar o aplicativo Vue.
+  - <b>main.js</b>: Este arquivo é responsável por inicializar o aplicativo Vue.
 
 
 <b>.gitignore</b>: arquivo do controle de versão que contém o que não deve ser enviado quando o projeto é "commitado"
 
-<b>.babel.config.js</b>: Possui diferentes extensões para o .babelsrc.js que é o transpiler, ou seja, converte EcmaScript 6 em EcmaScript 5 para que os navegadores que ainda não suportam as versões mais recentes do EcmaScript, compreenderem.
+<b>.babel.config.js</b>: Possui diferentes extensões para o .babelsrc.js que é o transpiler, ou seja, converte EcmaScript 6 em EcmaScript 5 para que os navegadores que ainda não suportam as versões mais recentes do EcmaScript passem a compreender.
 
 <b>.package-lock.json</b>: Descreve a árvore exata que foi gerada, de forma que as instalações subsequentes possam gerar árvores idênticas, independentemente das atualizações intermediárias de dependência.
 
@@ -74,7 +78,7 @@ Vue input mask - Versão 2.0.2.
 
 
 ### Nome utilizado na plataforma Gupy
-<b>Wilson Neto</b>
+Nome: <b>Wilson Neto</b>
 
 
 ### Referência de Configuração
