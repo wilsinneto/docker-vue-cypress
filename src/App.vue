@@ -172,9 +172,8 @@ export default {
     },
     validaTamanhoToken(valor) {
       if (valor.length > 0) {
-        if (!this.isNumber(valor)) {
+        if (!this.isNumber(valor))
           this.errors.push("Nome deve conter ao menos sobrenome.");
-        }
       } else this.errors.push("O nome é obrigatório.");
     },
     validaElementoToken(valor) {
@@ -189,13 +188,14 @@ export default {
       if (array.length > 1) {
         for (let i = 0; i < array.length; i++) {
           const element = array[i];
+
           if (this.isNumber(element)) break;
+
           if (this.validaElementoToken(element)) break;
         }
+
         this.usuario.nome = array.join(" ");
-      } else {
-        this.validaTamanhoToken(valor);
-      }
+      } else this.validaTamanhoToken(valor);
     },
     validaNome() {
       let valor = this.removerEspacosExtras();
