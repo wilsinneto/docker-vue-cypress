@@ -23,7 +23,7 @@
             type="text"
             name="nome"
             class="form-control"
-            v-model.trim="nome"
+            v-model.trim="usuario.nome"
             maxlength="100"
             placeholder="Digite nome completo"
           />
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-md-7">
           <label for="opcao">Como nos conheceu:</label>
-          <select id="opcao" class="form-control" v-model="opcao" name="opcao">
+          <select id="opcao" class="form-control" v-model="usuario.opcao" name="opcao">
             <option>TV</option>
             <option>Internet</option>
             <option>Outros</option>
@@ -46,7 +46,7 @@
             type="text"
             name="telefone"
             class="form-control"
-            v-model.trim="telefone"
+            v-model.trim="usuario.telefone"
             v-mask="'## – ########'"
             placeholder="99 – 99999999"
           />
@@ -92,7 +92,7 @@
                 id="facebook"
                 class="form-check-input"
                 value="facebook"
-                v-model="redeSocial"
+                v-model="usuario.redeSocial"
               />
               <label for="facebook">Facebook</label>
             </div>
@@ -103,7 +103,7 @@
                 id="linkedin"
                 class="form-check-input"
                 value="linkedin"
-                v-model="redeSocial"
+                v-model="usuario.redeSocial"
               />
               <label for="linkedin">Linkedin</label>
             </div>
@@ -114,7 +114,7 @@
                 id="instagram"
                 class="form-check-input"
                 value="instagram"
-                v-model="redeSocial"
+                v-model="usuario.redeSocial"
               />
               <label for="instagram">Instagram</label>
             </div>
@@ -147,43 +147,62 @@ export default {
   data() {
     return {
       errors: [],
-      nome: "",
-      telefone: "",
-      opcao: "",
       picked: false,
-      redeSocial: [],
-      disabled: 0
+      disabled: 0,
+      usuario: {
+        nome: "",
+        telefone: "",
+        opcao: "",
+        redeSocial: []
+      }
     };
   },
   methods: {
     removerEspacosExtras() {
-      return this.nome.replace(/\s+/g, " ");
+      return this.usuario.nome.replace(/\s+/g, " ");
     },
     formatarNumero() {
-      return this.telefone.replace(/\s+/g, "").replace("–", "");
+      return this.usuario.telefone.replace(/\s+/g, "").replace("–", "");
+    },
+    isNumber(valor) {
+      if (!isNaN(Number(valor))) {
+        this.errors.push("Nome não pode conter números.");
+        return true;
+      }
+    },
+    validaTamanhoToken(valor) {
+      if (valor.length > 0) {
+        if (!this.isNumber(valor)) {
+          this.errors.push("Nome deve conter ao menos sobrenome.");
+        }
+      } else this.errors.push("O nome é obrigatório.");
+    },
+    validaElementoToken(valor) {
+      if (valor.length < 3) {
+        this.errors.push(
+          "Nome e sobrenome devem conter no mínimo três carácteres cada."
+        );
+        return true;
+      }
+    },
+    validaToken(array, valor) {
+      if (array.length > 1) {
+        for (let i = 0; i < array.length; i++) {
+          const element = array[i];
+          if (this.isNumber(element)) break;
+          if (this.validaElementoToken(element)) break;
+        }
+        this.usuario.nome = array.join(" ");
+      } else {
+        this.validaTamanhoToken(valor);
+      }
     },
     validaNome() {
       let valor = this.removerEspacosExtras();
 
       let array = valor ? valor.split(" ") : "";
 
-      if (array.length > 1) {
-        for (let index = 0; index < array.length; index++) {
-          const element = array[index];
-
-          if (element.length < 3) {
-            this.errors.push(
-              "Nome e sobrenome devem conter no mínimo três carácteres cada."
-            );
-            break;
-          }
-        }
-        this.nome = array.join(" ");
-      } else {
-        valor.length > 0
-          ? this.errors.push("Nome deve conter ao menos sobrenome.")
-          : this.errors.push("O nome é obrigatório.");
-      }
+      this.validaToken(array, valor);
     },
     validaTelefone() {
       let valor = this.formatarNumero();
@@ -193,11 +212,11 @@ export default {
 
       !valor.length
         ? this.errors.push("Informe o número do telefone.")
-        : (this.telefone = valor);
+        : (this.usuario.telefone = valor);
     },
     verificaRedeSocial() {
-      if (this.picked === false) this.redeSocial = [];
-      if (this.picked === true && !this.redeSocial.length)
+      if (this.picked === false) this.usuario.redeSocial = [];
+      if (this.picked === true && !this.usuario.redeSocial.length)
         this.errors.push("Selecione qual rede social você utilza.");
     },
     verificarForm() {
