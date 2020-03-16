@@ -17,7 +17,6 @@
       <div class="row">
         <div class="col">
           <label for="nome">Nome:</label>
-          <!-- &nbsp; -->
           <input
             id="nome"
             type="text"
@@ -26,6 +25,7 @@
             v-model.trim="usuario.nome"
             maxlength="100"
             placeholder="Digite nome completo"
+            autofocus
           />
         </div>
       </div>
@@ -176,8 +176,8 @@ export default {
           this.errors.push("Nome deve conter ao menos sobrenome.");
       } else this.errors.push("O nome é obrigatório.");
     },
-    validaElementoToken(valor) {
-      if (valor.length < 3) {
+    validaElementoToken(array, element) {
+      if (array.length === 2 && element.length === 2) {
         this.errors.push(
           "Nome e sobrenome devem conter no mínimo três carácteres cada."
         );
@@ -191,7 +191,7 @@ export default {
 
           if (this.isNumber(element)) break;
 
-          if (this.validaElementoToken(element)) break;
+          if (this.validaElementoToken(array, element)) break;
         }
 
         this.usuario.nome = array.join(" ");
@@ -230,6 +230,8 @@ export default {
         this.disabled = (this.disabled + 1) % 2;
         return true;
       }
+
+      this.usuario = {};
     }
   }
 };
