@@ -7,8 +7,8 @@ Mas pode ser executado os testes conforme a orientação definida na etapa 3.
 
 
 ## Requisito
-Docker - @^19.03.5
-Docker Compose - @^1.18.0
+Docker - @^19.03.5 <br/>
+Docker Compose - @^1.18.0 <br/>
 Nodejs - Versão @^13.7.0
 
 
@@ -27,7 +27,7 @@ yarn serve
 ```
 
 ### 3 - Utilizando teste
-Após executar a etapa 2.
+Após executar a etapa 2. <br/>
 3.2 - Abra um novo Terminal na pasta da aplicação e execute o comando:
 ```
 npm run e2e
