@@ -63,6 +63,7 @@ function validaTelefone(value) {
   }
 }
 
+
 describe('The Field Name', () => {
 
   beforeEach('susccessfuly loads', () => {
@@ -248,14 +249,14 @@ describe('The Field Name', () => {
         .should('not.checked')
     });
 
-    // it('valida campos Sim', () => {
-    //   cy.get('#sim')
-    //     .click()
-    //     .focused() 
-    //     .then(() => {
-    //       cy.get('.form-check-input').
-    //     })     
-    // });
+    it('valida campos Sim', () => {
+      cy.get('#sim')
+        .click()
+        .focused()
+
+      cy.contains('Quais:')
+        .should('be.visible')
+    });
   });
 
 })
