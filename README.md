@@ -1,15 +1,15 @@
-# Elogroup - Desafio de Programação
+# Aplicação de form utilizando Docker, Vue e Cypress
 
 
 ### Observação
-O Cypress não está rodando em container, diferente da aplicação utilizando Vuejs.
+O Cypress está rodando em container, porém não está encontrando o endpoint executado pela aplicação Vuejs.
 Mas pode ser executado os testes conforme a orientação definida na etapa 3.
 
 
 ## Requisito
-Docker - @^19.03.5 <br/>
-Docker Compose - @^1.18.0 <br/>
-Nodejs - Versão @^13.7.0
+Docker - @19.03.5 <br/>
+Docker Compose - @1.18.0 <br/>
+Nodejs - Versão @13.7.0
 
 
 ## 1 - Configuração do projeto
